@@ -1,4 +1,4 @@
-package br.com.jlgregorio.rentacar.mapper;
+package br.com.brunomartins.rentacar.mapper;
 
 import org.modelmapper.ModelMapper;
 

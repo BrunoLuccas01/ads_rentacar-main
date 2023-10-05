@@ -1,10 +1,10 @@
-package br.com.jlgregorio.rentacar.service;
+package br.com.brunomartins.rentacar.service;
 
-import br.com.jlgregorio.rentacar.dto.VehicleDTO;
-import br.com.jlgregorio.rentacar.exception.ResourceNotFoundException;
-import br.com.jlgregorio.rentacar.mapper.CustomModelMapper;
-import br.com.jlgregorio.rentacar.model.VehicleModel;
-import br.com.jlgregorio.rentacar.repository.VehicleRepository;
+import br.com.brunomartins.rentacar.dto.VehicleDTO;
+import br.com.brunomartins.rentacar.exception.ResourceNotFoundException;
+import br.com.brunomartins.rentacar.mapper.CustomModelMapper;
+import br.com.brunomartins.rentacar.model.VehicleModel;
+import br.com.brunomartins.rentacar.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

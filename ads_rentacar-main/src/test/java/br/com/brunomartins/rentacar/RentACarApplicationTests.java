@@ -1,4 +1,4 @@
-package br.com.jlgregorio.rentacar;
+package br.com.brunomartins.rentacar;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package br.com.jlgregorio.rentacar.dto;
+package br.com.brunomartins.rentacar.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

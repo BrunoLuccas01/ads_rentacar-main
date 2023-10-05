@@ -1,7 +1,7 @@
-package br.com.jlgregorio.rentacar.controller;
+package br.com.brunomartins.rentacar.controller;
 
-import br.com.jlgregorio.rentacar.dto.CustomerDTO;
-import br.com.jlgregorio.rentacar.service.CustomerService;
+import br.com.brunomartins.rentacar.dto.CustomerDTO;
+import br.com.brunomartins.rentacar.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

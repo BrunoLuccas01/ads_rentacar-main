@@ -1,4 +1,4 @@
-package br.com.jlgregorio.rentacar.exception;
+package br.com.brunomartins.rentacar.exception;
 
 
 import org.springframework.http.HttpStatus;

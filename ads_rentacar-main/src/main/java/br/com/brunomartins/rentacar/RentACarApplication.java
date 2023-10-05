@@ -1,4 +1,4 @@
-package br.com.jlgregorio.rentacar;
+package br.com.brunomartins.rentacar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

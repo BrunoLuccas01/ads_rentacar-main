@@ -1,6 +1,6 @@
-package br.com.jlgregorio.rentacar.repository;
+package br.com.brunomartins.rentacar.repository;
 
-import br.com.jlgregorio.rentacar.model.CustomerModel;
+import br.com.brunomartins.rentacar.model.CustomerModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
