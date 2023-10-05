@@ -1,7 +1,7 @@
-package br.com.jlgregorio.rentacar.vehiclecontroller;
+package br.com.jlgregorio.rentacar.controller;
 
-import br.com.jlgregorio.rentacar.vehicledto.VehicleDTO;
-import br.com.jlgregorio.rentacar.vehicleservice.VehicleService;
+import br.com.jlgregorio.rentacar.dto.VehicleDTO;
+import br.com.jlgregorio.rentacar.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +31,8 @@ public class VehicleController {
         return service.findAll();
     }
 
-    @PutMapping
-    public VehicleDTO update(VehicleDTO dto){
+    @PutMapping("/{id}")
+    public VehicleDTO update(@PathVariable("id") int id, @RequestBody VehicleDTO dto){
         return service.update(dto);
     }
 

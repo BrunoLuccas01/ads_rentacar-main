@@ -1,12 +1,14 @@
-package br.com.jlgregorio.rentacar.vehicleservice;
+package br.com.jlgregorio.rentacar.service;
 
-import br.com.jlgregorio.rentacar.vehicledto.VehicleDTO;
+import br.com.jlgregorio.rentacar.dto.VehicleDTO;
 import br.com.jlgregorio.rentacar.exception.ResourceNotFoundException;
 import br.com.jlgregorio.rentacar.mapper.CustomModelMapper;
-import br.com.jlgregorio.rentacar.vehiclemodel.VehicleModel;
-import br.com.jlgregorio.rentacar.vehiclerepository.VehicleRepository;
+import br.com.jlgregorio.rentacar.model.VehicleModel;
+import br.com.jlgregorio.rentacar.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class VehicleService {
@@ -19,30 +21,27 @@ public class VehicleService {
         return CustomModelMapper.parseObject(repository.save(model), VehicleDTO.class);
     }
 
-    public VehicleModel findById(int id) {
+    public VehicleDTO findById(int id) {
         VehicleModel model = repository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException(null));
+                () -> new ResourceNotFoundException("Vehicle not found with ID: " + id));
         return CustomModelMapper.parseObject(model, VehicleDTO.class);
     }
 
-    public List<VehicleDTO> findAll();
-
-    {
-
+    public List<VehicleDTO> findAll() {
         List<VehicleModel> list = repository.findAll();
         return CustomModelMapper.parseObjectList(list, VehicleDTO.class);
     }
 
     public VehicleDTO update(VehicleDTO dto) {
         VehicleModel model = repository.findById(dto.getId()).orElseThrow(
-                () -> new ResourceNotFoundException(null));
+                () -> new ResourceNotFoundException("Vehicle not found with ID: " + dto.getId()));
         model = CustomModelMapper.parseObject(dto, VehicleModel.class);
         return CustomModelMapper.parseObject(repository.save(model), VehicleDTO.class);
     }
 
     public void delete(VehicleDTO dto) {
         VehicleModel model = repository.findById(dto.getId()).orElseThrow(
-                () -> new ResourceNotFoundException(null));
+                () -> new ResourceNotFoundException("Vehicle not found with ID: " + dto.getId()));
         repository.delete(model);
     }
 }

@@ -1,4 +1,4 @@
-package br.com.jlgregorio.rentacar.vehicledto;
+package br.com.jlgregorio.rentacar.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,10 +14,10 @@ public class VehicleDTO {
     private int id;
     private String modelName;
     private String assembler;
-    private Integer manufactureYear;
+    private int manufactureYear;
 
     public String modelYear() {
-        return this.modelName + "" + this.assembler;
+        return this.modelName + " " + this.assembler;
     }
-
 }
+

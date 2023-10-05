@@ -8,6 +8,8 @@ import br.com.jlgregorio.rentacar.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerService {
 
@@ -19,28 +21,27 @@ public class CustomerService {
         return CustomModelMapper.parseObject(repository.save(model), CustomerDTO.class);
     }
 
-    public CustomerModel findById(int id) {
+    public CustomerDTO findById(int id) {
         CustomerModel model = repository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException(null));
+                () -> new ResourceNotFoundException("Customer not found with ID: " + id));
         return CustomModelMapper.parseObject(model, CustomerDTO.class);
     }
 
-    public List<CustomerDTO> findAll(); {
-
-    List<CustomerModel> list = repository.findAll();
-    return CustomModelMapper.parseObjectList(list,CustomerDTO .class);
+    public List<CustomerDTO> findAll() {
+        List<CustomerModel> list = repository.findAll();
+        return CustomModelMapper.parseObjectList(list, CustomerDTO.class);
     }
 
-    public CustomerDTO update(CustomerDTO dto){
+    public CustomerDTO update(CustomerDTO dto) {
         CustomerModel model = repository.findById(dto.getId()).orElseThrow(
-                () -> new ResourceNotFoundException(null));
+                () -> new ResourceNotFoundException("Customer not found with ID: " + dto.getId()));
         model = CustomModelMapper.parseObject(dto, CustomerModel.class);
         return CustomModelMapper.parseObject(repository.save(model), CustomerDTO.class);
     }
 
-    public void delete(CustomerDTO dto){
+    public void delete(CustomerDTO dto) {
         CustomerModel model = repository.findById(dto.getId()).orElseThrow(
-                () -> new ResourceNotFoundException(null));
+                () -> new ResourceNotFoundException("Customer not found with ID: " + dto.getId()));
         repository.delete(model);
     }
 }

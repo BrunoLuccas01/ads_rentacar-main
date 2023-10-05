@@ -1,13 +1,13 @@
 package br.com.jlgregorio.rentacar.controller;
 
-import br.com.jlgregorio.rentacar.model.CustomerModel;
+import br.com.jlgregorio.rentacar.dto.CustomerDTO;
 import br.com.jlgregorio.rentacar.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import br.com.jlgregorio.rentacar.dto.CustomerDTO;
 
+import java.util.List;
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
@@ -31,8 +31,8 @@ public class CustomerController {
         return service.findAll();
     }
 
-    @PutMapping
-    public CustomerDTO update(CustomerDTO dto){
+    @PutMapping("/{id}")
+    public CustomerDTO update(@PathVariable("id") int id, @RequestBody CustomerDTO dto){
         return service.update(dto);
     }
 
